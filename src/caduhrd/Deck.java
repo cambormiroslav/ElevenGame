@@ -18,10 +18,23 @@ public class Deck {
     }
 
     /**
-     *
+     * for two cards
+     * Mira
      */
-    private void updateTable() {
-
+    public void updateTable(int first, int second) {
+        if(checkDeck(first, second)){
+            
+        }
+    }
+    
+    /**
+     * for three cards
+     * Mira
+     */
+    public void updateTable(int first, int second, int third) {
+        if(checkDeck(first, second, third)){
+            
+        }
     }
 
     /**
@@ -49,11 +62,30 @@ public class Deck {
     }
 
     /**
-     *
-     * @return
+     * for two cards
+     * Mira
+     * @return value of boolean
      */
-    private boolean checkDeck() {
-
+    private boolean checkDeck(int first, int second) {
+        if((onTable.get(first).getPoint() +  onTable.get(second).getPoint()) == 11){
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * for three cards
+     * Mira
+     * @param first
+     * @param second
+     * @param third
+     * @return value of boolean
+     */
+    private boolean checkDeck(int first, int second, int third) {
+        if((onTable.get(first).getPoint() +  onTable.get(second).getPoint() + onTable.get(third).getPoint()) == 0){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -66,6 +98,6 @@ public class Deck {
 
     @Override
     public String toString() {
-        return "Deck{" + "cards=" + cards + ", onTable=" + onTable + ", putAway=" + putAway + '}';
+        return "Deck{" + "cards=" + cards + ", onTable=" + onTable + '}';
     }
 }
