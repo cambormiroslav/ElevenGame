@@ -18,23 +18,29 @@ public class Deck {
     }
 
     /**
+     * updates table cards and remove from cards deck
      * for two cards
      * Mira
      */
-    public void updateTable(int first, int second) {
-        if(checkDeck(first, second)){
-            
-        }
+    private void updateTable(int first, int second) {
+        onTable.add(first - 1, cards.get(cards.size() - 1));
+        removeCardFromCards(cards.size());
+        onTable.add(second - 1, cards.get(cards.size() - 1));
+        removeCardFromCards(cards.size());
     }
     
     /**
+     * updates table cards and remove from cards deck 
      * for three cards
      * Mira
      */
-    public void updateTable(int first, int second, int third) {
-        if(checkDeck(first, second, third)){
-            
-        }
+    private void updateTable(int first, int second, int third) {
+        onTable.add(first - 1, cards.get(cards.size() - 1));
+        removeCardFromCards(cards.size());
+        onTable.add(second - 1, cards.get(cards.size() - 1));
+        removeCardFromCards(cards.size());
+        onTable.add(third - 1, cards.get(cards.size() - 1));
+        removeCardFromCards(cards.size());
     }
 
     /**
@@ -42,7 +48,7 @@ public class Deck {
      * @return
      */
     public Card generateRandomCard() {
-
+        
     }
 
     /**
@@ -50,31 +56,47 @@ public class Deck {
      * @return
      */
     public Card generateRandomDeck() {
-
+        
     }
 
     /**
-     *
-     * @return
+     * call checking cards
+     * if can be remove call updateTable
+     * (three cards)
+     * Mira
      */
-    public boolean replaceChosenCards() {
-
+    public void replaceChosenCards(int first, int second) {
+        if(checkDeck(first, second)){
+            updateTable(first, second);
+        }
+    }
+    
+    /**
+     * call checking cards
+     * if can be remove call updateTable
+     * (two cards)
+     * Mira
+     */
+    public void replaceChosenCards(int first, int second, int third) {
+        if(checkDeck(first, second, third)){
+             updateTable(first, second);
+        }
     }
 
     /**
-     * for two cards
+     * check cards if can be remove (two cards)
      * Mira
      * @return value of boolean
      */
     private boolean checkDeck(int first, int second) {
-        if((onTable.get(first).getPoint() +  onTable.get(second).getPoint()) == 11){
+        if((onTable.get(first - 1).getPoint() +  onTable.get(second - 1).getPoint()) == 11){
             return true;
         }
         return false;
     }
     
     /**
-     * for three cards
+     * check cards if can be remove (three cards)
      * Mira
      * @param first
      * @param second
@@ -82,7 +104,7 @@ public class Deck {
      * @return value of boolean
      */
     private boolean checkDeck(int first, int second, int third) {
-        if((onTable.get(first).getPoint() +  onTable.get(second).getPoint() + onTable.get(third).getPoint()) == 0){
+        if((onTable.get(first - 1).getPoint() +  onTable.get(second - 1).getPoint() + onTable.get(third - 1).getPoint()) == 0){
             return true;
         }
         return false;
@@ -99,5 +121,12 @@ public class Deck {
     @Override
     public String toString() {
         return "Deck{" + "cards=" + cards + ", onTable=" + onTable + '}';
+    }
+    
+    /**
+     * 
+     */
+    private void removeCardFromCards(int number){
+        cards.remove(number - 1);
     }
 }
