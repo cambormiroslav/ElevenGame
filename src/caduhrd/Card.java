@@ -16,14 +16,26 @@ public class Card {
         this.point = point;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public String getSymbol() {
         return symbol;
     }
 
+    /**
+     * 
+     * @return 
+     */
     public String getValue() {
         return value;
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
     public int getPoint() {
         return point;
     }

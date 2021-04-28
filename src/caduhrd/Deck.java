@@ -8,42 +8,60 @@ import java.util.List;
  * @author Cambor, Duracka, Hrdlicka
  */
 public class Deck {
-    private Card[] cards;
+
+    private List<Card> cards;
     private List<Card> onTable;
-    private boolean[] putAway;
 
     public Deck() {
-        this.cards = new Card[52];
+        this.cards = new ArrayList<>();
         this.onTable = new ArrayList<>();
-        this.putAway = new boolean[52];
-    }
-    
-    private void updateTable(){
-        
-    }
-    
-    public Card generateRandomCard(){
-        
-    }
-    
-    public Card generateRandomDeck(){
-        
-    }
-    
-    public boolean replaceChosenCards(){
-        
-    }
-    
-    private boolean checkDeck(){
-        
     }
 
+    /**
+     *
+     */
+    private void updateTable() {
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Card generateRandomCard() {
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Card generateRandomDeck() {
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean replaceChosenCards() {
+
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean checkDeck() {
+
+    }
+
+    /**
+     *
+     * @return
+     */
     public List<Card> getOnTable() {
         return onTable;
-    }
-
-    public boolean[] getPutAway() {
-        return putAway;
     }
 
     @Override
