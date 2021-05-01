@@ -2,6 +2,8 @@ package caduhrd;
 
 import java.util.ArrayList;
 import java.util.List;
+import elevengame.*;
+import java.util.Collections;
 
 /**
  *
@@ -15,6 +17,7 @@ public class Deck {
     public Deck() {
         this.cards = new ArrayList<>();
         this.onTable = new ArrayList<>();
+        generateRandomDeck();
     }
 
     /**
@@ -44,24 +47,34 @@ public class Deck {
     }
 
     /**
-     *
-     * @return
+     * not implemented yet
+     * @return nothing
      */
     public Card generateRandomCard() {
-        
+        throw new UnsupportedOperationException("Zatím neimplementováno.");
     }
 
     /**
-     *
+     * generate random deck
      * Mira
-     * @return
      */
-    public Card generateRandomDeck() {
+    private void generateRandomDeck() {
+        String[] symbols = DataStore.loadSymbols();
+        String[] values = DataStore.loadValues();
+        int[] points = DataStore.loadNPoints();
         
+        for (int i = 0; i < symbols.length; i++) {
+            for (int j = 0; j < values.length; j++) {
+                for (int k = 0; k < points.length; k++) {
+                    cards.add(new Card(symbols[i], values[j], points[k]));
+                }
+            }
+        }
+        Collections.shuffle(cards);
     }
 
     /**
-     * call checking cards
+     * call checking cards if can be chosen
      * if can be remove call updateTable
      * (three cards)
      * Mira
@@ -73,7 +86,7 @@ public class Deck {
     }
     
     /**
-     * call checking cards
+     * call checking cards if can be chosen
      * if can be remove call updateTable
      * (two cards)
      * Mira
@@ -112,7 +125,7 @@ public class Deck {
     }
 
     /**
-     *
+     * getter of List reprezented cards on table
      * @return
      */
     public List<Card> getOnTable() {
@@ -125,7 +138,7 @@ public class Deck {
     }
     
     /**
-     * 
+     * remove the last card from deck of random cards
      */
     private void removeCardFromCards(int number){
         cards.remove(number - 1);
