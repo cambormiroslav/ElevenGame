@@ -7,6 +7,12 @@ import java.util.List;
  * @author Cambor, Duracka, Hrdlicka
  */
 public class ElevenGame implements GameInterface{
+    
+    Deck decks;
+
+    public ElevenGame() {
+        this.decks = new Deck();
+    }
 
     @Override
     public String getName() {
@@ -40,7 +46,7 @@ public class ElevenGame implements GameInterface{
 
     @Override
     public boolean isWon() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (decks.isWonGame())?(true):(false);
     }
 
 }
