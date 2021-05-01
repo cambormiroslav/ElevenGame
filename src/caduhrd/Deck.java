@@ -143,4 +143,13 @@ public class Deck {
     private void removeCardFromCards(int number){
         cards.remove(number - 1);
     }
+    
+    /**
+     * check if is won game
+     * if not return false
+     * @return boolean value 
+     */
+    public boolean isWonGame(){
+        return (cards.size() == 0)?(true):(false);
+    }
 }
